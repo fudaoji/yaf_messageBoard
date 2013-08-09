@@ -1,0 +1,19 @@
+应用介绍：基于yaf框架开发的简易留言板，只写了前台部分，后台管理后期添加。目前可以实现的功能有注册、登录、发表留言、查询留言、评论，其中管理员还可以删除留言。
+
+1.将用phpmyadmin将liuyanban.sql导入数据库
+
+2.更改application/models/config 里数据库连接参数
+
+3.设置虚拟主机
+如：
+<VirtualHost *:80>
+	DocumentRoot "D:/prog_tools/wamp/www/liuyanban"
+	ServerName  kxliuyan.com
+	ServerAlias *.kxliuyan.com
+</VirtualHost>
+
+4.设置host
+127.0.0.1  kxliuyan.com  www.kxliuyan.com
+
+5.访问index.php
+http://kxliuyan.com

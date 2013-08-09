@@ -1,0 +1,70 @@
+<html>
+<head>
+	<meta http-equiv='Content-Type' content="text/html; charset=utf8">
+	<title>Register Page</title>
+	<link rel="stylesheet" href="/public/css/common.css">
+	<link rel="stylesheet" href="/public/css/accounts.css">
+	<script type="text/javascript" src="/public/js/jquery.min.js"></script>
+	<script type='text/javascript' src="/public/js/register.js"></script>
+</head>
+<body>
+	<div id="ac-wrapper">
+		<div id="nav">
+			<ul>
+				<li><a href="/index.php">浏览留言</a><span>|</span></li>
+				<li><a href="/index.php/login">登录</a></li>
+			</ul>
+		</div>
+		<div id="form">
+			<!--form name="acform" id="acform" method="post" action=""-->
+				<table>
+					<tr>
+						<th>*用户名:</th>
+						<td><input type="text" id='username' name="username" size="30" /></td>
+					</tr>
+					<tr>
+						<th>*密&nbsp;&nbsp;码:</th>
+						<td><input type="password" id='pwd' name="pwd" size="30" /></td>
+					</tr>
+					<tr>
+						<th>*重複密码:</th>
+						<td><input type="password" id='repeat_pwd' name="repeat_pwd" size="30" /></td>
+					</tr>
+					<tr>
+						<th>*真實姓名:</th>
+						<td><input type="text" id='realname' name="realname" size="30" /></td>
+					</tr>
+					<tr>
+						<th>性&nbsp;&nbsp;别:</th>
+						<td>男<input type="radio" name="sex" value="1" checked />
+							女<input type="radio" name="sex" value="0"/>
+	  					</td>
+					</tr>
+					<tr>
+						<th>*電子郵箱:</th>
+						<td><input type="text" id='email' name="email" size="30" /></td>
+					</tr>
+					<tr>
+						<th>*验证码:</th>
+						<td id="validatecode">
+							<ul>
+								<li><input type="text" id='code' name="code" /></li>
+								<li><img onclick="this.src='/index.php/register/valicode?'+Math.random();" src="/index.php/register/valicode" alt="验证码" />&nbsp;<font color='red'>点击图片可换一张</font>
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<center>
+								<input id='submit' type="submit" name="submit" value="注册"  />
+								<input type="reset" value="重置">
+							</center>
+						</td>
+					</tr>
+				</table>
+			<!--/form-->
+		</div>	
+	</div>
+</body>
+</html>

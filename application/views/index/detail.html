@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>开心留言吧</title>
+<link rel="stylesheet" href="/public/css/common.css" />
+<link rel="stylesheet" href="/public/css/detail.css" />
+<script type="text/javascript" src="/public/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/js/replypost.js"></script>
+<script type="text/javascript" src="/public/js/common.js"></script>
+</head>
+<body>
+<div id='wrapper'>
+	<div id='header' align="center">
+    <div id='nav'>
+    <span><a href='/index.php'>首页</a></span>|
+    <span><a href="<?php echo $info['url']?>">
+        <?php echo $info['statu'] ?></a>
+    </span>
+    </div><h1>开心留言吧</h1>
+  </div>
+  	<table id='main' cellspacing="0" cellpadding="0">
+      <tr class='search'><td align='right'>
+        <a onclick="history.go(-1);"><<<返回</a><div id='search'>
+        <input size='30' type='text' id='searchKey' value='search'/><img id='searchImg' src="/public/images/search.png"></div></td>
+    </tr>
+    	<tr id='title'>
+        <!--留言详情开始-->
+        <td colspan='2'>
+              <ul>
+    		        <?php if ($info['postInfo']['title']) {?>
+    		         <li id='postTitle'> <?php echo $info['postInfo']['title'];?></li>
+                  <?php }?>
+                  <li id='postBody'><?php echo $info['postInfo']['content'];?></li>
+              </ul>
+        <!--留言详情结束-->
+    		  <span id='huifu'><?php echo $info['postInfo']['author'];?>
+            &nbsp;&nbsp;[<?php echo $info['postInfo']['time']?>]
+            <a href="#content_box">
+              <img src="/public/images/fastreply.gif">回复
+            </a></span>
+    		</td>
+    	</tr>
+    	
+      <!--列出评论-->
+    	<?php if (is_array($info['comments']) && !empty($info['comments'])) {
+    		foreach ($info['comments'] as $key => $comment) {?>
+    	<tr class='comment'>
+    		<td class="touxiang"><img src="/public/images/noavatar_middle.gif"></td>
+    		<td>
+          <div>
+              <div><?php echo $comment['content']?></div>
+      				<div class="reply">
+      					<ul>
+      						<li><? echo ($pageInfo['pageNav']-1)*$pageInfo['perPage']+$key+1 ?>楼</li>
+      						<li><?php echo $comment['time'] ?></li>
+                  <li><?php echo $comment['comment_num']?>条回复</li>
+      						<li>
+      							<a href="/index.php/index/index/detail/id/<?php echo $comment['id']; ?>" target="_self">
+      							<img src="/public/images/fastreply.gif">回复</a>
+      						</li>
+      					</ul>
+      				</div>
+          </div>
+    		</td>
+    	</tr>
+    	<?php }?>
+      <!--评论内容结束-->
+
+      <!--翻页框-->
+      <tr>
+        <td id='pagebox' colspan='2' height='60' align='center'>
+          <center><?php echo $pageInfo['pagelist'] ?></center>
+        </td>
+      </tr>
+      <!--翻页框结束-->
+      <?php }else{?>
+      <tr>
+        <td colspan='2' align='middle' height='30'>暂无回复内容</td>
+      </tr>
+      <?php }?>
+  	</table>
+  	<table id='post' cellspacing="0" cellpadding="10">
+	    <tr><th>发表回复</th></tr>
+	    <tr>
+	        <td align="right">内容</td>
+	        <td>
+	        	<textarea name="content_box" cols="60" rows="10" id="content_box"></textarea>
+	        </td>
+	    </tr>
+	    <tr>
+	    	<td></td>
+	    	<td style='padding-top:0;'>
+	    		<img src="/public/images/pn_reply.png" name="submit_button"  id="submit_button"></td>
+	    </tr>
+    </table>
+  	<div id='footer'>
+  		<span>©2013&nbsp;<a href="http://weibo.com/2750469762/profile?topnav=1&wvr=5" target="_blank">fudaoji</a>&nbsp;  </span>
+  	</div>
+</div>
+<div id='scrollTo'>
+	<a onclick="window.scrollTo('0','0');" title="回到顶部">
+	<img src="/public/images/scrollToTop.jpg"></a></div>
+</body>
+</html>

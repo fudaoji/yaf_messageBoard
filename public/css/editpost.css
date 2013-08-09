@@ -1,0 +1,10 @@
+#main{
+		width: 760px;
+		border: 0;
+}
+#header{
+	height: 100px;
+	background-color: #e5f4f7;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}

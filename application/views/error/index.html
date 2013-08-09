@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>ErrorPage</title>
+	<link rel="stylesheet" href="/public/css/register_login.css">
+	<script type="text/javascript">
+		var duration = 2900;
+		var timer = null;
+		var endTime = new Date().getTime() + duration + 100;
+		var url = 'http://kxliuyan.com/index.php';
+
+		function interval() {
+			var n = (endTime - new Date().getTime()) / 1000;
+			if (n < 0) return;
+			var str = "系统将在<span><b>"+n.toFixed(0)+"</b></span>秒后转到首页。<br>";
+			str = str + "如果您的浏览器无法跳转，请点击<span><a href="+url+">首页</a></span>";
+			document.getElementById("msg").innerHTML = str //n.toFixed表示小數保留幾位
+			setTimeout(interval, 10);
+		}
+		window.onload = function() {
+			timer = setTimeout("window.location.href='"+url+"'", duration);
+			interval();
+		}
+	</script>
+</head>
+<body>
+	<div id='wrapper'>
+
+		<div id='bar'><center><h2>抱歉，你已经登录了！</h2></center></div>
+		<center>
+		<div id='msg'></div>
+		</center>
+	</div>
+</body>
+</html>

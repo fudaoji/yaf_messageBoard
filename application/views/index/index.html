@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>开心留言吧</title>
+<link rel="stylesheet" href="/public/css/common.css" />
+<link rel="stylesheet" href="/public/css/index.css" />
+<script type="text/javascript" src="/public/js/jquery.min.js"></script>
+<script type="text/javascript" src='/public/js/common.js'></script>
+<script type="text/javascript" src='/public/js/index.js'></script>
+
+</head>
+
+<body>
+<center>
+  <table id='main' cellspacing="0" cellpadding="0">
+    <tr>
+      <td id='nav'><a href='/index.php/register'>注册</a>|
+      	<a href="<?php echo $info['url']?>">
+      	<?php echo $info['statu'] ?> 
+        </a><center><h1>开心留言吧</h1></center></td>
+    </tr>
+    <tr class='search'><td align='right'>
+    	<a href='#content_box' style='float: left;'><img src="/public/images/pn_post.png"></a><div id='search'>
+    	<input size='30' type='text' id='searchKey' value='search'/><img id='searchImg' src="/public/images/search.png"></div></td>
+	</tr>
+    <tr>
+      <td align="left">
+			<!-- 留言列表-->
+			    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			        <tr>
+			          <td>
+			          <?php if (is_array($info['postList']) && !empty($info['postList'])) {
+			          		foreach ($info['postList'] as $lines ){?>
+			          <table id='postdetail' cellpadding="0" cellspacing="0" >
+			            <tr>
+			              <td class='title'><span class='bolder'>【标题】</span>
+			              	<?php echo $lines['title']; ?>&nbsp;&nbsp;[<span style="color:#999999;"><?php echo $lines['time']; ?></span>] 
+			              	<span id='avatar'>
+			              		<img src="/public/images/noavatar_small.gif">&nbsp;
+			              		<?php echo $lines['author']; ?>
+			              	</span>
+			              </td>
+			            </tr>
+			            <tr>
+			              <td class='content'>
+			              	<?php echo $lines['content']; ?>
+			              </td>
+			            </tr>
+			            <tr>
+			              <td class='func'>
+			              	<div class='pDiv'>
+			              	<?php if($info['user'] && $info['user']['groupID']==0){?>
+			              	<a href="javascript:void(0);" onclick="deletePost(<?php echo $lines['id']; ?>)">
+			              		<img src="/public/images/recyclebin.gif">删除</a>&nbsp;&nbsp;<?php }?>
+			              	<a href="/index.php/index/index/detail/id/<?php echo $lines['id']; ?>" target="_self">
+			              		<img src="/public/images/fastreply.gif">我来说一句</a>
+			              	<div class='cDiv'>共<font color='red'><?php echo $lines['comment_num'] ?></font>条回复<div>
+			              	</div>
+			              </td>
+			            </tr>
+			          </table>
+			          <?php } } else {?>
+			        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <tr>
+					    <td height="30" align="center">暂没有留言信息</td>
+					  </tr>
+					</table>			
+                <?php } ?>
+            <!--留言列表结束 -->
+          </td>
+        </tr>
+        <!--分页框-->
+        <tr>
+          <td height="60" bgcolor='white'>
+          	<center>
+          		<?echo $pagelist_html;?>
+          	</center>
+          </td>
+        </tr>
+        <!--分页框结束-->
+        <tr>
+        	<td align="left">
+        	<!--发表留言框-->
+          	<table id='post' cellspacing="5" cellpadding="0">
+	            <tr>
+	              <td height="30" colspan="2" align="left">&nbsp;发表留言：</td>
+	            </tr>
+	            <tr>
+	              <td width="100" height="30" align="right">标题：</td>
+	              <td><input type="text" name="title_box" id="title_box" size="50" /></td>
+	            </tr>
+	            <tr>
+	              <td width="100" height="60" align="right">内容：</td>
+	              <td align="left" valign="top"><textarea name="content_box" cols="60" rows="8" id="content_box"></textarea></td>
+	            </tr>
+	            <tr>
+	              <td width="100" height="30" align="right">&nbsp;</td>
+	              <td><img src='/public/images/pn_post.png' name="submit_button" id="submit_button" /></td>
+	            </tr>
+          	</table>
+          	<!--发表留言框结束-->
+          	</td>
+        </tr>
+</table>     
+      </td>
+    </tr>
+    
+    <tr>
+      <td></td>
+    </tr>
+  </table>
+  <div id='footer' >
+      <span>©2013&nbsp;<a href="http://weibo.com/2750469762/profile?topnav=1&wvr=5" target="_blank">fudaoji</a>&nbsp;  </span>
+    </div>
+</center>
+<div id='scrollTo'>
+	<a onclick="window.scrollTo('0','0');" title="回到顶部">
+	<img src="/public/images/scrollToTop.jpg"></a>
+</div>
+</body>
+</html>

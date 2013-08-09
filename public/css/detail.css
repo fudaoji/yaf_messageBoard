@@ -1,0 +1,81 @@
+table{
+		width: 100%;
+		background-color: #FFF;
+		border-top: 1px gray solid;
+}
+table tr,td{
+	border: 1px gray solid;
+	border-top: none;
+	vertical-align: top;
+	padding: 5px;
+}
+	
+	#title{
+		font-size: 1.3em;
+		text-align: left;
+		line-height: 50px;
+	}
+	#title #postTitle{
+		text-decoration: underline;
+	}
+	#title #postBody{
+		text-indent: 30px;
+	}
+	#title td{
+		border: 1px gray solid;
+		font-size: 16px;
+		padding-left: 10px;
+		border-bottom: 2px gray solid;
+		
+	}
+	#title td #huifu{
+		float: right;
+		margin-right: 20px;
+	}
+	.comment{
+		border-top: 1px gray solid;
+
+	}
+
+	.touxiang{
+		vertical-align: middle;
+		padding: 0;
+		background-color: #ccc;
+		
+	}
+	.comment .reply{
+		float: right;
+		position: relative;
+		right: 5px;
+		bottom: -10px;
+		padding-bottom: 10px;
+	}
+	.comment ul li{
+		display: inline-table;
+		list-style-type: none;
+		margin-left: -10px;
+		font-weight: lighter;
+		color: gray;
+	}
+	.comment td div{
+		margin-left: 10px;
+		text-indent: 30px;
+	}
+	#post, #post tr, #post td, #post th{
+		border: none;
+	}
+	#post tr th{
+		padding-top: 10px;
+		padding-left: 10px;
+		margin-bottom: 10px;
+		font-size: 1.2em;
+	}
+	#post td{
+		padding-left: 30px;
+		
+		padding-top: 20px;
+		color: black;
+	}
+#pagebox {
+	vertical-align: middle;
+}

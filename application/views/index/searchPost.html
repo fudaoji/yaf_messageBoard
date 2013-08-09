@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>开心留言吧</title>
+<link rel="stylesheet" href="/public/css/common.css" />
+<link rel="stylesheet" href="/public/css/searchpost.css" />
+<script type="text/javascript" src="/public/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/js/common.js"></script>
+</head>
+<body>
+<div id='wrapper'>
+	<div id='header' align="center">
+    <div id='nav'>
+    <span><a href='/index.php'>首页</a></span>|
+    <span><a href='/index.php/register'>注册</a></span>|
+    <span><a href="<?php echo $info['url']?>"><?php echo $info['statu']?></a>
+    </span>
+    </div><h1>开心留言吧</h1>
+  </div>
+  	<table id='main' cellspacing="0" cellpadding="0">
+      <tr >
+        <td id='backBox'><a onclick="history.go(-1);"><<<返回</a><center>查询结果列表</center><hr width='100%'></td>
+      </tr>
+      <?php if (is_array($info['postList']) && $info['postList']) {
+                foreach ($info['postList'] as $post) {?>
+      <tr>
+          <td>
+            <ul>
+              <li class='postHead'>
+                  <a href="/index.php/index/index/detail/id/<?php echo $post['id']?>"><span class='title'><?php echo $post['title'] ?> </span></a>
+                  <span class='time'>留言时间[<?echo $post['time']?>]</span>
+              </li>
+              <li class='postBody'>
+              <?php 
+                  if (strlen($post['content'])>100) {
+                      echo substr($post['content'], 0,100)."。。。<br>";
+                  }else{
+                      echo $post['content'].'<br>';
+                  }
+                ?></li>
+            </ul>
+          </td>
+      </tr>                   
+      <?php }?>
+      <!--翻页框-->
+      <tr>
+        <td id='pagebox' colspan='2' height='60' align='center'>
+          <center><?php echo $info['pageList']?></center>
+        </td>
+      </tr>
+      <!--翻页框结束-->
+      <?php }else{ ?>
+      <tr>
+        <td colspan='2' align='middle' height='30'>没有搜索到相关内容!</td>
+      </tr>
+      <?php }?>
+  	</table>
+  	
+  	<div id='footer'>
+  		<span>©2013&nbsp;<a href="http://weibo.com/2750469762/profile?topnav=1&wvr=5" target="_blank">fudaoji</a>&nbsp;  </span>
+  	</div>
+</div>
+<div id='scrollTo'>
+	<a onclick="window.scrollTo('0','0');" title="回到顶部">
+	<img src="/public/images/scrollToTop.jpg"></a></div>
+</body>
+</html>

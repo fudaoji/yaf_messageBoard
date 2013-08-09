@@ -1,0 +1,42 @@
+#ac-wrapper{
+	padding-top: 20px;
+	margin: 20px auto;
+	width: 800px;
+	background-color: white;
+	height: 600px;
+	border: #ccc solid 1px;
+	border-radius: 20px;
+}
+#ac-wrapper #nav{
+	padding-left: 10px;
+}
+#ac-wrapper #form {
+	margin-top: 50px;
+	margin-left: 90px;
+}
+#ac-wrapper #nav li a{
+	text-decoration: none;
+}
+
+#ac-wrapper #form  table td {
+	padding: 10px;
+}
+#ac-wrapper #form  table th {
+	text-align: right;
+	padding: 10px;
+}
+
+#ac-wrapper #form td input {
+	height: 30px;
+}
+#ac-wrapper #form table #validatecode ul{
+	margin-left: 0px;
+	padding-left: 0px;
+}
+#ac-wrapper #form table #validatecode ul li{
+	display: inline-table;
+	list-style: none;
+}
+#ac-wrapper #form table #validatecode ul img{
+	margin-bottom: -10px;
+}
