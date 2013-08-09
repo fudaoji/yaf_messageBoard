@@ -4,15 +4,12 @@
  *
  * 留言管理   Yaf_Controller_Abstract
  * @author guochen2
- * @copyright Copyright (C) 2012 www.tommycode.com All rights reserved.
- * @version $Id: IndexController.class.php 1.0 2012-03-27 23:07:06Z tommy $
  * @package Controller
- * @since 1.0
  */
 class IndexController extends BaseController {
 
 	/**
-	 * 留言本首页
+	 * 留言板首页
 	 *
 	 * @access public
 	 * @留言列表 array 
