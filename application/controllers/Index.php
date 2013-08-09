@@ -3,15 +3,12 @@
  * file: Index.php
  *
  * 留言管理   Yaf_Controller_Abstract
- * @author guochen2
  * @package Controller
  */
 class IndexController extends BaseController {
 
 	/**
 	 * 留言板首页
-	 *
-	 * @access public
 	 * @留言列表 array 
 	 */
 	public function indexAction() {
